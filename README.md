@@ -22,7 +22,6 @@ Orgonized and detailled informations about memebers of laboratory. </br> </br>
 ![events](https://github.com/emnaayedi/Research-Laboratory/blob/3e2ed86d37088ea74df2d8552c30d09dec9bd951/Screenshots/events.jpg?raw=true)</br></br> </br>
 **Quickly look over members interactions**  </br> </br>
 ![actions](https://github.com/emnaayedi/Research-Laboratory/blob/697f130dcedb8e43df74aaecffc29e41877b5551/Screenshots/actions.jpg?raw=true) </br> </br> </br>
-
  ## Useful Links </br> </br>
  https://reflectoring.io/accessing-spring-data-rest-with-feign/ </br>
  https://springframework.guru/feign-rest-client-for-spring-application/
