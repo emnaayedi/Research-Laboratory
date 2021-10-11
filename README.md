@@ -16,6 +16,6 @@ Design applications as a set of independent and deployable microservices that co
 ![members](https://github.com/emnaayedi/Research-Laboratory/blob/79d5539bd274639043e19ded5f191ae8d45d8817/Screenshots/mebmbers.jpg?raw=true)
 
  ## Useful Links ## </br>
- https://reflectoring.io/accessing-spring-datarest-with-feign/ </br>
- https://springframework.guru/feign-rest-clientfor-spring-application/
+ https://reflectoring.io/accessing-spring-data-rest-with-feign/ </br>
+ https://springframework.guru/feign-rest-client-for-spring-application/
 
