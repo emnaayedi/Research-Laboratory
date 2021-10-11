@@ -1,1 +1,25 @@
 # Research-Laboratory
+A web application to manage a research laboratory where professors and students are the members of the laboratory.The student is generally either a master's or a thesis student who is supervised by a single teacher-researcher. </br>
+Each member can contribute in the laboratory either by publishing his research work in terms of journal article, book chapter, book, poster, etc. It also has the possibility of developing one or more tools and making them open source to the research community. In addition, he can participate in the organization of one or more events within the laboratory.
+</br>
+![diagram Class](https://github.com/emnaayedi/Research-Laboratory/blob/d5341a3440b9e2094135b499b37b3b82f5ef03b6/Screenshots/Microservices.jpg?raw=true)
+</br></br>
+## Application Architecture  </br>
+![architecture](https://github.com/emnaayedi/Research-Laboratory/blob/8a748f376075ee6f6a9e893d64d68cee74a06782/Screenshots/archi.jpg?raw=true)</br></br>
+
+## Centralized Configuration of Microservices </br>
+
+Design applications as a set of independent and deployable microservices that communicate with each other using Spring Boot and Spring Cloud
+![backend](https://github.com/emnaayedi/Research-Laboratory/blob/8a748f376075ee6f6a9e893d64d68cee74a06782/Screenshots/architecture.jpg?raw=true)
+</br></br>
+## Application features </br>
+![login](https://github.com/emnaayedi/Research-Laboratory/blob/3e2ed86d37088ea74df2d8552c30d09dec9bd951/Screenshots/login.jpg?raw=true)
+![members](https://github.com/emnaayedi/Research-Laboratory/blob/79d5539bd274639043e19ded5f191ae8d45d8817/Screenshots/mebmbers.jpg?raw=true)
+![events](https://github.com/emnaayedi/Research-Laboratory/blob/3e2ed86d37088ea74df2d8552c30d09dec9bd951/Screenshots/events.jpg?raw=true)
+![publications](https://github.com/emnaayedi/Research-Laboratory/blob/3e2ed86d37088ea74df2d8552c30d09dec9bd951/Screenshots/publications.jpg?raw=true)
+![actions](https://github.com/emnaayedi/Research-Laboratory/blob/3e2ed86d37088ea74df2d8552c30d09dec9bd951/Screenshots/membersactions.jpg?raw=true)
+
+ ## Useful Links </br>
+ https://reflectoring.io/accessing-spring-data-rest-with-feign/ </br>
+ https://springframework.guru/feign-rest-client-for-spring-application/
+
