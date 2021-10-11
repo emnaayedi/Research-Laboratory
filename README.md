@@ -12,10 +12,14 @@ Each member can contribute in the laboratory either by publishing his research w
 Design applications as a set of independent and deployable microservices that communicate with each other using Spring Boot and Spring Cloud
 ![backend](https://github.com/emnaayedi/Research-Laboratory/blob/8a748f376075ee6f6a9e893d64d68cee74a06782/Screenshots/architecture.jpg?raw=true)
 </br></br>
-## Advanced Searches on members </br>
+## Application features </br>
+![login](https://github.com/emnaayedi/Research-Laboratory/blob/3e2ed86d37088ea74df2d8552c30d09dec9bd951/Screenshots/login.jpg?raw=true)
 ![members](https://github.com/emnaayedi/Research-Laboratory/blob/79d5539bd274639043e19ded5f191ae8d45d8817/Screenshots/mebmbers.jpg?raw=true)
+![events](https://github.com/emnaayedi/Research-Laboratory/blob/3e2ed86d37088ea74df2d8552c30d09dec9bd951/Screenshots/events.jpg?raw=true)
+![publications](https://github.com/emnaayedi/Research-Laboratory/blob/3e2ed86d37088ea74df2d8552c30d09dec9bd951/Screenshots/publications.jpg?raw=true)
+![actions](https://github.com/emnaayedi/Research-Laboratory/blob/3e2ed86d37088ea74df2d8552c30d09dec9bd951/Screenshots/membersactions.jpg?raw=true)
 
- ## Useful Links ## </br>
+ ## Useful Links </br>
  https://reflectoring.io/accessing-spring-data-rest-with-feign/ </br>
  https://springframework.guru/feign-rest-client-for-spring-application/
 
