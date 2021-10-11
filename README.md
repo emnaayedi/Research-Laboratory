@@ -9,5 +9,8 @@ Each member can contribute in the laboratory either by publishing his research w
 
 **Backend Architecture**</br>
 ![backend](https://github.com/emnaayedi/Research-Laboratory/blob/8a748f376075ee6f6a9e893d64d68cee74a06782/Screenshots/architecture.jpg?raw=true)
+</br></br>
+**Advanced Searches on members**
+[!members](https://github.com/emnaayedi/Research-Laboratory/blob/79d5539bd274639043e19ded5f191ae8d45d8817/Screenshots/mebmbers.jpg?raw=true)
 
 
