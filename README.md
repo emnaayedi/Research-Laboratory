@@ -7,10 +7,15 @@ Each member can contribute in the laboratory either by publishing his research w
 **Application Architecture**</br>
 ![architecture](https://github.com/emnaayedi/Research-Laboratory/blob/8a748f376075ee6f6a9e893d64d68cee74a06782/Screenshots/archi.jpg?raw=true)</br></br>
 
-**Backend Architecture**</br>
+**Centralized Configuration of Microservices**</br>
+
+Design applications as a set of independent and deployable microservices that communicate with each other using Spring Boot and Spring Cloud
 ![backend](https://github.com/emnaayedi/Research-Laboratory/blob/8a748f376075ee6f6a9e893d64d68cee74a06782/Screenshots/architecture.jpg?raw=true)
 </br></br>
 **Advanced Searches on members**
 ![members](https://github.com/emnaayedi/Research-Laboratory/blob/79d5539bd274639043e19ded5f191ae8d45d8817/Screenshots/mebmbers.jpg?raw=true)
 
+**Useful Links**</br>
+• https://reflectoring.io/accessing-spring-datarest-with-feign/
+• https://springframework.guru/feign-rest-clientfor-spring-application/
 
