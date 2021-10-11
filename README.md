@@ -19,9 +19,8 @@ Design applications as a set of independent and deployable microservices that co
 Orgonized and detailled informations about memebers of laboratory. </br>
 ![members](https://github.com/emnaayedi/Research-Laboratory/blob/528be6d0e9578f0811012e39ce1fde212c50022f/Screenshots/memb.jpg?raw=true)</br></br>
 **Simple and User-friendly interfaces** </br>
-![events](https://github.com/emnaayedi/Research-Laboratory/blob/3e2ed86d37088ea74df2d8552c30d09dec9bd951/Screenshots/events.jpg?raw=true)
-![publications](https://github.com/emnaayedi/Research-Laboratory/blob/3e2ed86d37088ea74df2d8552c30d09dec9bd951/Screenshots/publications.jpg?raw=true)
-**
+![events](https://github.com/emnaayedi/Research-Laboratory/blob/3e2ed86d37088ea74df2d8552c30d09dec9bd951/Screenshots/events.jpg?raw=true)</br></br>
+**Quickly look over members interactions**
 ![actions](https://github.com/emnaayedi/Research-Laboratory/blob/697f130dcedb8e43df74aaecffc29e41877b5551/Screenshots/actions.jpg?raw=true)
 
  ## Useful Links </br>
