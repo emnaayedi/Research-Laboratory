@@ -13,22 +13,22 @@ Design applications as a set of independent and deployable microservices that co
 ![backend](https://github.com/emnaayedi/Research-Laboratory/blob/8a748f376075ee6f6a9e893d64d68cee74a06782/Screenshots/architecture.jpg?raw=true)
 </br></br>
 ## Application features </br>
-**Authentification and Role-Based Access Controls** </br>
-![login](https://github.com/emnaayedi/Research-Laboratory/blob/3e2ed86d37088ea74df2d8552c30d09dec9bd951/Screenshots/login.jpg?raw=true)</br></br>
-**Advanced Searches on Laboratory Data**</br>
-Orgonized and detailled informations about memebers of laboratory. </br>
-![members](https://github.com/emnaayedi/Research-Laboratory/blob/528be6d0e9578f0811012e39ce1fde212c50022f/Screenshots/memb.jpg?raw=true)</br></br>
-**Simple and User-friendly interfaces** </br>
-![events](https://github.com/emnaayedi/Research-Laboratory/blob/3e2ed86d37088ea74df2d8552c30d09dec9bd951/Screenshots/events.jpg?raw=true)</br></br>
-**Quickly look over members interactions**
-![actions](https://github.com/emnaayedi/Research-Laboratory/blob/697f130dcedb8e43df74aaecffc29e41877b5551/Screenshots/actions.jpg?raw=true)
+**Authentification and Role-Based Access Controls** </br> </br>
+![login](https://github.com/emnaayedi/Research-Laboratory/blob/3e2ed86d37088ea74df2d8552c30d09dec9bd951/Screenshots/login.jpg?raw=true)</br></br> </br>
+**Advanced Searches on Laboratory Data**</br> </br>
+Orgonized and detailled informations about memebers of laboratory. </br> </br>
+![members](https://github.com/emnaayedi/Research-Laboratory/blob/528be6d0e9578f0811012e39ce1fde212c50022f/Screenshots/memb.jpg?raw=true)</br></br> </br>
+**Simple and User-friendly interfaces** </br>  </br>
+![events](https://github.com/emnaayedi/Research-Laboratory/blob/3e2ed86d37088ea74df2d8552c30d09dec9bd951/Screenshots/events.jpg?raw=true)</br></br> </br>
+**Quickly look over members interactions**  </br> </br>
+![actions](https://github.com/emnaayedi/Research-Laboratory/blob/697f130dcedb8e43df74aaecffc29e41877b5551/Screenshots/actions.jpg?raw=true) </br> </br> </br>
 
- ## Useful Links </br>
+ ## Useful Links </br> </br>
  https://reflectoring.io/accessing-spring-data-rest-with-feign/ </br>
  https://springframework.guru/feign-rest-client-for-spring-application/
  ## Tutorials to see
- Spring Data Rest :
-https://www.codeflow.site/fr/article/spring-data-rest-intro
-https://www.baeldung.com/spring-data-rest-intro
+ Spring Data Rest : </br>
+https://www.codeflow.site/fr/article/spring-data-rest-intro </br>
+https://www.baeldung.com/spring-data-rest-intro </br>
 https://www.springboottutorial.com/spring-boot-introduction-to-spring-data-rest
 
