@@ -1,0 +1,76 @@
+<mat-sidenav-container>
+
+  <!-- The side nav -->
+  <mat-sidenav #drawer fixedInViewport="true" mode="over" opened="false" >
+    <div >
+      <mat-toolbar  fxLayout fxLayoutGap="16px">
+        <mat-icon style="margin-right: 20px!important;" >school</mat-icon>
+        <span>Enis21 Lab</span>
+      </mat-toolbar>
+      <mat-nav-list><div *ngIf="info.token; else loggedOut">
+       
+          <strong>Username:</strong> {{info.username}}<br/>
+          <strong>Roles:</strong> {{info.authorities}}<br />
+          <strong>Token:</strong> {{info.token}}.
+       
+        <button class="btn btn-secondary" (click)="logout()">Logout</button>
+      </div>
+       
+      <ng-template #loggedOut>
+        Please login.
+      </ng-template>
+        <a mat-list-item [routerLink]="['membre']" style="color:rgb(3, 37, 37); font-size: large;"><mat-icon style="color: rgb(3, 37, 37);margin-right: 20px!important;">group</mat-icon>&nbsp;&nbsp;&nbsp;Membres</a> 
+        <a mat-list-item [routerLink]="['evenement']" [state]="{isLoggedIn: isLoggedIn}" style="color:rgb(3, 37, 37);font-size: large;"><mat-icon style="color: rgb(3, 37, 37);margin-right: 20px!important;">event</mat-icon>&nbsp;&nbsp;&nbsp;Evenements</a>
+        <a mat-list-item [routerLink]="['publication']"  style="color: rgb(31, 160, 160);font-size: large;"><mat-icon style="color: rgb(31, 160, 160);margin-right: 20px!important;" >receipt_long</mat-icon>&nbsp;&nbsp;Publications</a>
+        <a mat-list-item [routerLink]="['outil']" style="color:rgb(3, 37, 37);font-size: large;"><mat-icon style="color: rgb(3, 37, 37);margin-right: 20px!important;">integration_instructions</mat-icon>&nbsp;&nbsp;&nbsp;Outils</a>
+
+      </mat-nav-list>
+    </div>
+  </mat-sidenav>
+  <!-- EO: Side nav-->
+
+  <!-- Side nav content-->
+  <mat-sidenav-content>
+    <mat-toolbar >
+      <div fxFlex fxLayout fxLayoutAlign="start center">
+        <button type="button" aria-label="Toggle sidenav" class="toolbar-button"
+                mat-icon-button (click)="drawer.toggle()">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <div>&nbsp;&nbsp;&nbsp;Enis21 Lab</div>
+
+        <div fxFlex></div>
+
+        <div class="toolbar-separator"></div>
+        <button [matMenuTriggerFor]="userMenu" class="toolbar-button" mat-button>
+          <div fxLayout="row" fxLayoutAlign="center center" *ngIf="!!user">
+            <img class="avatar mr-0 mr-sm-16" [src]="user.photoURL">
+            <span class="username mx-12" fxHide fxShow.gt-sm>{{user.displayName}}</span>
+            <mat-icon class="s-16" fxHide.xs>keyboard_arrow_down</mat-icon>
+          </div>
+        </button>
+
+        <mat-menu #userMenu="matMenu" [overlapTrigger]="false">
+
+          <button class="" mat-menu-item>
+            <mat-icon>account_box</mat-icon>
+            <span>Profile</span>
+          </button>
+          <button class="" mat-menu-item (click)="logout()">
+            <mat-icon>exit_to_app</mat-icon>
+            <span>Logout</span>
+          </button>
+
+        </mat-menu>
+      </div>
+    </mat-toolbar>
+
+    <div class="content" style="padding-top: 50px!important;max-width: 1700px!important;padding-left:130px;">
+      <router-outlet></router-outlet>
+
+    </div>
+
+  </mat-sidenav-content>
+  <!-- EO: Side nav content-->
+
+</mat-sidenav-container>

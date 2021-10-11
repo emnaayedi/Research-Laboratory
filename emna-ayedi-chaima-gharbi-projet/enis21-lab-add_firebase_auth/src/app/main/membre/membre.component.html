@@ -1,0 +1,423 @@
+<div class="container">
+  <h1 mat-dialog-title style="color: #842e1b;">Liste des Membres</h1>
+  <div>
+
+  
+
+    <div class="row justify-content-center" style=" padding-bottom: 50px;">
+      <div class="col-3">
+        <div><button (click)=openChoiceEtudiant() class="btn btn-outline" style="background-color: rgba(235, 86, 17, 0.534); height:  80px!important;font-size: 2em;padding: 
+         20px!important;">Etudiants</button></div>
+      </div>
+
+      <div class="col-3">
+        <div><button (click)=openChoiceEnseignant() class="btn btn-outline" style="background-color: rgba(235, 86, 17, 0.534);
+          height:  80px!important;font-size: 2em;padding:  20px!important;">Enseignants</button></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-3" *ngIf="MembreComponent.enseignantChoice">
+    <div><button (click)=removeDuplicates(MembreComponent.recherche) class="btn btn-outline" style="background-color:teal;
+      height:  60px!important;font-size: 1.4em;padding:  15px!important;">Recherche</button></div><br />
+    <div class="table" *ngIf="MembreComponent.recherche">
+      <div>
+        <div class="tr">
+
+          <div class="td">
+            <p>Etablissement</p>
+            <mat-form-field appearance="fill"  style="width: 150px;">
+              <mat-label>Etablissement</mat-label>
+              <mat-select>
+                <mat-option value="select">Select</mat-option>
+                <mat-option *ngFor="let item of enseignant_without_duplicates_Etablissement" value="{{item}}"
+                  (click)="SearchEtablissement(item)">
+                  {{item}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="td">
+            <p>Grade</p>
+            <mat-form-field appearance="fill"  style="width: 150px;">
+              <mat-label>Grade</mat-label>
+              <mat-select>
+                <mat-option value="select">Select</mat-option>
+                <mat-option *ngFor="let item of enseignant_without_duplicates_Grade" value="{{item}}"
+                  (click)="SearchGrade(item)">
+                  {{item}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="grid-table mat-elevation-z8 w-100-p" *ngIf="MembreComponent.etudiantChoice">
+    <div class="thead">
+      <div class="tr">
+        <div class="td">CIN</div>
+        <div class="td">Non</div>
+        <div class="td">Prenon</div>
+        <div class="td">Date Naissance</div>
+        <div class="td">Email</div>
+        <!-- <div class="td">CV</div> -->
+        <div class="td">Date Inscription</div>
+        <div class="td">Diplôme</div>
+        <div class="td">Sujet</div>
+        <div class="td">Encadrant</div>
+
+        <div class="td">
+          <button style="width:150px" class="btn btn-outline-success" (click)="addMembreFormsEtudiant()">
+            <i class="fa fa-plus"></i>Nouvel Etudiant
+          </button>
+        </div>
+
+
+        <div class="td">
+          <span *ngIf="notification" class="elementToFadeInAndOut">
+            <i class="fas fa-check-circle {{notification.class}}"></i>
+            {{notification.message}}
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="tbody">
+      <form class="tr" [formGroup]="fg" *ngFor="let fg of etudiantForms.controls, let i=index"
+        (submit)="recordSubmitEtudiant(fg)">
+        <div class="td">
+          <input class="form-control" formControlName="cin">
+        </div>
+        <div class="td">
+          <input class="form-control" formControlName="nom">
+        </div>
+        <div class="td">
+          <input class="form-control" formControlName="prenom">
+        </div>
+        <div class="td">
+          <input class="form-control" formControlName="dateNaissance" type="date"  style="width:150px;">
+        </div>
+        <div class="td">
+          <input class="form-control" formControlName="email">
+        </div>
+        <!--
+          <div class="td">
+            <input class="form-control" formControlName="CV">
+          </div>-->
+        <div class="td">
+          <input class="form-control" formControlName="dateInscription"  type="date"  style="width:150px;">
+        </div>
+        <div class="td">
+          <select class="form-control" formControlName="diplome"  style="width:auto;">
+            <option value="mastere">Mastere</option>
+            <option value="these">These</option>
+          </select>
+        </div>
+
+        <div class="td">
+          <input class="form-control" formControlName="sujet"  style="width:100px;">
+        </div>
+
+        <div class="td">
+          <select class="form-control" formControlName="encadrant"  style="width:auto;">
+            <option *ngFor="let enseignant of enseignantList" [ngValue]="enseignant" type="text"  selected >{{enseignant.nom +" "+
+              enseignant.prenom}}</option>
+          </select>
+        </div>
+      
+
+        <div>
+          <div type="button  " (click)=" openDialog(MembreComponent.open,fg.get('id').value)">Plus d'infos</div>
+        </div>
+
+
+
+
+        <div class="td">
+
+          <button type="submit" class="btn btn-success" [disabled]="fg.invalid"
+            [ngClass]="(fg.get('id').value==0)?'btn-success':'btn-outline-dark'">
+            <mat-icon>edit</mat-icon>
+            <!-- tester le codefil si =0 submit sinon le botton c'est un update -->
+            {{fg.get('id').value==0?'Submit':'Update'}}
+          </button>
+
+          <button mat-icon-button color="warn" type="button" class="btn btn-light ml-1"
+            (click)="onDeleteEtudiant(fg.get('id').value,i)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+  <div class="grid-table mat-elevation-z8 w-100-p" *ngIf="MembreComponent.enseignantChoice">
+    <div class="thead">
+      <div class="tr">
+        <div class="td">CIN</div>
+        <div class="td">Non</div>
+        <div class="td">Prenon</div>
+        <div class="td">Date Naissance</div>
+        <div class="td">Email</div>
+        <div class="td">CV</div>
+        <div class="td">Grade</div>
+        <div class="td">Etablissement</div>
+        <div class="td">
+          <button style="width:150px" class="btn btn-outline-success" (click)="addMembreFormsEnseignant()">
+            <i class="fa fa-plus"></i>Nouvel Enseignant
+          </button>
+        </div>
+
+        <div class="td">
+          <span *ngIf="notification" class="elementToFadeInAndOut">
+            <i class="fas fa-check-circle {{notification.class}}"></i>
+            {{notification.message}}
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="tbody">
+      <form class="tr" [formGroup]="fg" *ngFor="let fg of enseignantForms.controls, let i=index"
+        (submit)="recordSubmitEnseignant(fg)">
+        <div class="td">
+          <input class="form-control" formControlName="cin">
+        </div>
+        <div class="td">
+          <input class="form-control" formControlName="nom">
+        </div>
+        <div class="td">
+          <input class="form-control" formControlName="prenom">
+        </div>
+        <div class="td">
+          <input class="form-control" formControlName="dateNaissance"  type="date"  style="width:150px;">
+        </div>
+        <div class="td">
+          <input class="form-control" formControlName="email">
+        </div>
+        <div class="td">
+          <a [href]="fg.get('cv').value" target="_blank" style="margin-top: 10px; margin-left: 50px;">
+           <mat-icon style="margin-top: 10px;">picture_as_pdf</mat-icon>
+         </a> 
+
+         <input  class="form-control" formControlName="cv" >
+
+       </div>
+        <div class="td">
+          <input class="form-control" formControlName="grade">
+        </div>
+
+        <div class="td">
+          <input class="form-control" formControlName="etablissement">
+        </div>
+
+       
+
+
+        <div>
+          <div type="button  " (click)=" openDialog(MembreComponent.open,fg.get('id').value)">Plus d'infos</div>
+        </div>
+
+        <div class="td">
+          <button type="submit" class="btn btn-success" [disabled]="fg.invalid"
+            [ngClass]="(fg.get('id').value==0)?'btn-success':'btn-outline-dark'">
+            <mat-icon>edit</mat-icon>
+            <!-- tester le codefil si =0 submit sinon le botton c'est un update -->
+            {{fg.get('id').value==0?'Submit':'Update'}}
+          </button>
+          <button mat-icon-button color="warn" type="button" class="btn btn-light ml-1"
+            (click)="onDeleteEnseignant(fg.get('id').value,i)">
+            <mat-icon>delete</mat-icon>
+          </button>
+
+
+
+        </div>
+
+
+
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<ng-container *ngIf="MembreComponent.open">
+  <div class="container py-1">
+
+    <br /><br />
+
+    <div class="grid-table">
+      <div class="thead" *ngIf="MembreComponent.o">
+        <div class="tr">
+          <div class="td">
+            participe a:
+          </div>
+          <div class="td">
+            <button style="width:150px; " class="btn btn-outline-success"
+              (click)=" addEvent_MemberForms(MembreComponent.is)">
+              <i class="fa fa-plus"></i>Nouvel Evenement
+            </button>
+          </div>
+
+          <div class="td">
+            <span *ngIf="notification" class="elementToFadeInAndOut">
+              <i class="fas fa-check-circle {{notification.class}}"></i>
+              {{notification.message}}
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="tbody">
+        <ng-container [formGroup]="fgg" *ngFor="let fgg of even_member_Forms.controls, let i=index"
+          (submit)="affecterPartToEvent(fgg,MembreComponent.vale)">
+          <div *ngFor="let fgg2 of evenementForms.controls">
+            <div *ngIf="fgg2.get('id').value==fgg.get('id').value">
+              Evenement: &nbsp;{{fgg2.get('titre').value}}&nbsp; aura lieu a &nbsp;
+              {{fgg2.get('lieu').value}}&nbsp; de &nbsp;
+              {{fgg2.get('dateDebut').value}}&nbsp; a &nbsp;
+              {{fgg2.get('dateFin').value}}
+
+              <div *ngIf="MembreComponent.is">
+                <form class="tr" [formGroup]="fggg" *ngFor="let fggg of evenementForms.controls, let i=index"
+                  (submit)="affecterPartToEvent(fggg,MembreComponent.vale)">
+                  <div class="td">
+                    <select class="form-control" formControlName="id">
+                      <option *ngFor="let senace of eventList" value="{{senace.id}}">{{evenement.id}}</option>
+                    </select>
+                  </div>
+                  <button type="submit" class="btn btn-success" [disabled]="fggg.invalid"
+                    [ngClass]="(fggg.get('id').value==0)?'btn-success':'btn-outline-dark'">
+                    <mat-icon>edit</mat-icon>
+                    <!-- tester le codefil si =0 submit sinon le botton c'est un update -->
+                    {{fggg.get('id').value!=fgg.get('id').value?'Submit':'Update'}}
+                  </button>
+
+                </form>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="MembreComponent.open">
+  <div class="container py-1">
+
+    <br /><br />
+
+    <div class="grid-table">
+      <div class="thead" *ngIf="MembreComponent.y">
+        <div class="tr">
+          <div class="td">
+            developpeur de:
+          </div>
+          <div class="td">
+            <button style="width:150px; " class="btn btn-outline-success"
+              (click)=" addOutil_MemberForms(MembreComponent.is)">
+              <i class="fa fa-plus"></i>Nouvel Outil
+            </button>
+          </div>
+
+          <div class="td">
+            <span *ngIf="notification" class="elementToFadeInAndOut">
+              <i class="fas fa-check-circle {{notification.class}}"></i>
+              {{notification.message}}
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="tbody">
+        <ng-container [formGroup]="fgg3" *ngFor="let fgg3 of outil_member_Forms.controls, let i=index"
+          (submit)="affecterDevToOutil(fgg3,MembreComponent.vale)">
+          <div *ngFor="let fgg2 of outilForms.controls">
+            <div *ngIf="fgg2.get('id').value==fgg3.get('id').value">
+              Outil: &nbsp;{{fgg2.get('id').value}}&nbsp; aura lieu a &nbsp;
+              <div *ngIf="MembreComponent.is">
+                <form class="tr" [formGroup]="fggg3" *ngFor="let fggg3 of outilForms.controls, let i=index"
+                  (submit)="affecterDevToOutil(fggg3,MembreComponent.vale)">
+                  <div class="td">
+                    <select class="form-control" formControlName="id">
+                      <option *ngFor="let evenement of outilList" value="{{evenement.id}}">{{evenement.id}}</option>
+                    </select>
+                  </div>
+                  <button type="submit" class="btn btn-success" [disabled]="fggg3.invalid"
+                    [ngClass]="(fggg3.get('id').value==0)?'btn-success':'btn-outline-dark'">
+                    <mat-icon>edit</mat-icon>
+                    <!-- tester le codefil si =0 submit sinon le botton c'est un update -->
+                    {{fggg3.get('id').value==0?'Submit':'Update'}}
+                  </button>
+
+                </form>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="MembreComponent.open">
+  <div class="container py-1">
+
+    <br /><br />
+
+    <div class="grid-table">
+      <div class="thead" *ngIf="MembreComponent.x">
+        <div class="tr">
+          <div class="td">
+            auteur de:
+          </div>
+          <div class="td">
+            <button style="width:150px; " class="btn btn-outline-success"
+              (click)=" addPub_MemberForms(MembreComponent.is)">
+              <i class="fa fa-plus"></i>Nouvelle Publication
+            </button>
+          </div>
+
+          <div class="td">
+            <span *ngIf="notification" class="elementToFadeInAndOut">
+              <i class="fas fa-check-circle {{notification.class}}"></i>
+              {{notification.message}}
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="tbody">
+        <ng-container [formGroup]="fgg5" *ngFor="let fgg5 of pub_member_Forms.controls, let i=index"
+          (submit)="affecterAutToPub(fgg5,MembreComponent.vale)">
+          <div *ngFor="let fgg6 of publicationForms.controls">
+            <div *ngIf="fgg6.get('id').value==fgg5.get('id').value">
+              Publication: &nbsp;{{fgg6.get('titre').value}}&nbsp; aura lieu a &nbsp;
+              <div *ngIf="MembreComponent.is">
+                <form class="tr" [formGroup]="fggg6" *ngFor="let fggg6 of publicationForms.controls, let i=index"
+                  (submit)="affecterAutToPub(fggg6,MembreComponent.vale)">
+                  <div class="td">
+                    <select class="form-control" formControlName="id">
+                      <option *ngFor="let evenement of pubList" value="{{evenement.id}}">{{evenement.id}}</option>
+                    </select>
+                  </div>
+                  <button type="submit" class="btn btn-success" [disabled]="fggg6.invalid"
+                    [ngClass]="(fggg6.get('id').value==fgg5.get('id').value)?'btn-success':'btn-outline-dark'">
+                    <mat-icon>edit</mat-icon>
+                    <!-- tester le codefil si =0 submit sinon le botton c'est un update -->
+                    {{fggg6.get('id').value==0?'Submit':'Update'}}
+                  </button>
+
+                </form>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+
+      </div>
+    </div>
+  </div>
+</ng-container>

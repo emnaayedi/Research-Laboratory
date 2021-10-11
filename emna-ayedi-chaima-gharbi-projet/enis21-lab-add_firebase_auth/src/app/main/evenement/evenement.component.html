@@ -1,0 +1,58 @@
+<div class="container"  >
+    <h1 mat-dialog-title>Liste des evenements</h1>
+    
+  </div>
+
+    <div class="grid-table mat-elevation-z8 w-100-p" >
+      <div class="thead">
+          <div class="tr">
+              <div class="td">titre </div>
+              <div class="td">lieu</div>
+              <div class="td">date Debut </div>
+              <div class="td">date Fin </div>
+  
+              <div class="td" >
+                  <button class="btn btn-outline-success" (click)="addEvenementForms()">
+                      <i class="fa fa-plus"></i> Nouveau Evenement
+                  </button>
+              </div>
+              
+             
+              <div class="td">
+                  <span *ngIf="notification" class="elementToFadeInAndOut">
+                      <i class="fas fa-check-circle {{notification.class}}"></i>
+                      {{notification.message}}
+                  </span>
+              </div>
+          </div>
+      </div>
+      <div class="tbody">
+          <form class="tr" [formGroup]="fg" *ngFor="let fg of evenementForms.controls, let i=index" (submit)="recordSubmit(fg)">
+              <div class="td">
+                  <input class="form-control" formControlName="titre">
+              </div>
+              <div class="td">
+                  <input class="form-control" formControlName="lieu">
+              </div>
+              <div class="td">
+                  <input class="form-control" type ="datetime" formControlName="dateDebut">
+              </div>
+                  <div class="td">
+                  <input class="form-control" type ="datetime"formControlName="dateFin">
+              </div>
+              <div class="td" >
+                  <button type="submit" class="btn btn-success" [disabled]="fg.invalid"
+                  [ngClass]="(fg.get('id').value==0)?'btn-success':'btn-outline-dark'"> <mat-icon >edit</mat-icon>
+                      <!-- tester le codefil si =0 submit sinon le botton c'est un update -->
+                      {{fg.get('id').value==0?'Submit':'Update'}}
+                  </button>
+  
+                  <button   mat-icon-button color="warn" class="btn btn-light ml-1" (click)="onDelete(fg.get('id').value,i)">
+                    <mat-icon >delete</mat-icon>                  </button>
+              </div>
+             
+          </form>
+      </div>
+  </div>
+  <full-calendar [options]="calendarOptions "style=" width:1700px;  padding: 100px;" ></full-calendar>
+  

@@ -1,0 +1,45 @@
+<div class="container">
+    <h1 mat-dialog-title >Liste des outils</h1>
+
+<div class="grid-table">
+    <div class="thead">
+        <div class="tr">
+            <div class="td">Date</div>
+            <div class="td">Source</div>
+            <div class="td" *ngIf="!!isLoggedIn">
+                <button class="btn btn-outline-success" (click)="addOutilForms()">
+                    <i class="fa fa-plus"></i> Nouvel Outil
+                </button>
+            </div>
+            
+           
+            <div class="td">
+                <span *ngIf="notification" class="elementToFadeInAndOut">
+                    <i class="fas fa-check-circle {{notification.class}}"></i>
+                    {{notification.message}}
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="tbody">
+        <form class="tr"  [formGroup]="fg" *ngFor="let fg of outilForms.controls, let i=index" (submit)="recordSubmit(fg)">
+            <div class="td">
+                    <input class="form-control" formControlName="date" type="datetime-local" value="date :'d MMMM y, HH:mm:ss'"  >
+            </div>
+            <div class="td">
+                <input class="form-control" formControlName="source" type="text" >                
+            </div>
+            <div class="td"*ngIf="!!isLoggedIn">
+                <button type="submit" class="btn btn-success" [disabled]="fg.invalid"
+                [ngClass]="(fg.get('id').value==0)?'btn-success':'btn-outline-dark'"> <mat-icon >edit</mat-icon>
+                    <!-- tester le codefil si =0 submit sinon le botton c'est un update -->
+                    {{fg.get('id').value==0?'Submit':'Update'}}
+                </button>
+
+                <button mat-icon-button type="button" class="btn btn-light ml-1" (click)="onDelete(fg.get('id').value,i)">
+                    <mat-icon >delete</mat-icon>                </button>
+            </div>
+         
+        </form>
+    </div>
+</div></div>

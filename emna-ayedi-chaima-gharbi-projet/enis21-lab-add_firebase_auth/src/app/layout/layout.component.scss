@@ -1,0 +1,53 @@
+
+mat-sidenav-container {
+  height: 100% !important;
+ 
+
+  mat-sidenav-content {
+    mat-toolbar {
+      position: fixed;
+  
+    }
+  }
+}
+.mat-sidenav{width: 300px; background-color:#fff}
+
+.mat-sidenav-container {
+  height: 100%;
+  background:url(..\images\s72.jpg);
+}
+.mat-icon {
+  transform: scale(1.5);
+}
+.sidenav {
+  width: 250px;
+ 
+}
+.carousel-example-1z{
+  max-height: 900px !important;
+}
+
+
+.mat-toolbar{font-size: 1.5em; color: crimson; 	font-family:'Roboto, monospace';text-transform: inherit;
+}
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+mat-toolbar {
+  .toolbar-separator {
+    height: 64px;
+    width: 1px;
+
+   
+  }
+
+  .toolbar-button{
+    min-width: 64px;
+    height: 64px;
+
+   
+  }
+}
