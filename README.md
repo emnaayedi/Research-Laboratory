@@ -16,11 +16,11 @@ Design applications as a set of independent and deployable microservices that co
 **Authentification and Role-Based Access Controls** </br> </br>
 ![login](https://github.com/emnaayedi/Research-Laboratory/blob/3e2ed86d37088ea74df2d8552c30d09dec9bd951/Screenshots/login.jpg?raw=true)</br></br> </br>
 **Advanced Searches on Laboratory Data**</br> </br>
-Orgonized and detailled informations about memebers of laboratory. </br> </br>
+Organized and detailed information about members of laboratory. </br> </br>
 ![members](https://github.com/emnaayedi/Research-Laboratory/blob/528be6d0e9578f0811012e39ce1fde212c50022f/Screenshots/memb.jpg?raw=true)</br></br> </br>
 **Simple and User-friendly interfaces** </br>  </br>
 ![events](https://github.com/emnaayedi/Research-Laboratory/blob/3e2ed86d37088ea74df2d8552c30d09dec9bd951/Screenshots/events.jpg?raw=true)</br></br> </br>
-**Quickly look over members interactions**  </br> </br>
+**Quickly looking over members interactions**  </br> </br>
 ![actions](https://github.com/emnaayedi/Research-Laboratory/blob/697f130dcedb8e43df74aaecffc29e41877b5551/Screenshots/actions.jpg?raw=true) </br> </br> </br>
  ## Useful Links </br> </br>
  https://reflectoring.io/accessing-spring-data-rest-with-feign/ </br>
